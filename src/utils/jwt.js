@@ -1,7 +1,10 @@
 const jwt = require("jsonwebtoken");
 
 const jwtAuth = (req, res, next) => {
-    const token = req.headers.authorization?.split(" ")[1];
+    // Check for token in cookies or Authorization header
+    const token =
+        req.cookies?.token ||
+        (req.headers.authorization && req.headers.authorization.split(" ")[1]);
     if (!token) {
         return res.status(401).json({ error: "Unauthorized" });
     }
@@ -15,4 +18,10 @@ const jwtAuth = (req, res, next) => {
     }
 };
 
-module.exports = { jwtAuth };
+function generateToken(payload) {
+    return jwt.sign(payload, process.env.JWT_SECRET || "your_secret_key", {
+        expiresIn: "1h",
+    });
+}
+
+module.exports = { jwtAuth, generateToken };
