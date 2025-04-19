@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+<body>
+    <h1>Profile Page</h1>
+
+    <p>Welcome to your profile, <%= user.name %>!</p>
+    <p>Email: <%= user.email %></p>
+    <p>Roll No: <%= user.rollno %></p>
+    <p>Feedback Count: <%= feedbackCount %></p>
+
+    <ul>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/">Go to Home</a></li>
+        <li><a href="/feedback">Give Feedback</a></li>
+        <li><a href="/view-feedback">View Feedback</a></li>
+        <li><a href="/delete-account">Delete Account</a></li>
+        <li><a href="/update-profile">Update Profile</a></li>
+        <li><a href="/change-password">Change Password</a></li>
+        <li><a href="/view-submitted-feedback">View Submitted Feedback</a></li>
+    </ul>
+</body>
+</html>
