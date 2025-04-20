@@ -22,7 +22,10 @@ router.post("/feedback", jwtAuth, async (req, res) => {
         res.redirect("submitted");
     } catch (err) {
         console.error("Error saving feedback:", err);
-        res.status(500).send("Something went wrong.");
+        res.status(500).render("invalid", {
+            title: "Error",
+            message: "An error occurred while saving your feedback. Please try again.",
+        });
     }
 });
 
