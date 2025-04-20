@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const connectDB = require("../config/db");
+const mongoose = require("mongoose");
 
 const app = express();
 
@@ -40,7 +41,7 @@ app.get("/", (req, res) => {
     res.redirect("/landing");
 });
 
-// Add this route before the error h`andling middleware
+// Add this route before the error handling middleware
 app.get("/landing", (req, res) => {
     res.render("landing", {
         title: "Welcome to Feedback Form",
