@@ -1,196 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #4a6bff;
-            --secondary-color: #6c757d;
-            --success-color: #28a745;
-            --background-color: #f8f9fa;
-            --text-color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #ff385c;
+      --bg: #f7f7f7;
+      --text: #222;
+      --subtext: #717171;
+      --white: #fff;
+      --border: #e5e5e5;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.5s ease-out;
-        }
+    .container {
+      background-color: var(--white);
+      max-width: 700px;
+      width: 100%;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      animation: fadeIn 0.5s ease-in-out;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            animation: slideDown 0.5s ease-out;
-        }
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-        .header h1 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
 
-        .welcome-text {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-        }
+    .header p {
+      color: var(--subtext);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            animation: slideUp 0.5s ease-out;
-            animation-fill-mode: both;
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-            font-weight: 500;
-        }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      border: 1.8px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.1);
-        }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255, 56, 92, 0.1);
+    }
 
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
 
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: slideUp 0.5s ease-out 0.3s;
-            animation-fill-mode: both;
-        }
+    .submit-btn {
+      background-color: var(--accent);
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      padding: 1rem;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-        .submit-btn:hover {
-            background-color: #3a5bef;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
-        }
+    .submit-btn:hover {
+      background-color: #e03150;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(255, 56, 92, 0.25);
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .form-group:nth-child(1) { animation-delay: 0.1s; }
-        .form-group:nth-child(2) { animation-delay: 0.2s; }
-        .form-group:nth-child(3) { animation-delay: 0.3s; }
-        .form-group:nth-child(4) { animation-delay: 0.4s; }
-        .form-group:nth-child(5) { animation-delay: 0.5s; }
-        .form-group:nth-child(6) { animation-delay: 0.6s; }
-        .form-group:nth-child(7) { animation-delay: 0.7s; }
-    </style>
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Feedback Form</h1>
-            <p class="welcome-text">Welcome, <%= user.name %>! Please provide your valuable feedback.</p>
-        </div>
-        
-        <form action="/home/feedback" method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="<%= user.name %>" readonly>
-            </div>
-
-            <div class="form-group">
-                <label for="rollno">Roll Number</label>
-                <input type="text" id="rollno" name="rollno" value="<%= user.rollno %>" readonly>
-            </div>
-
-            <div class="form-group">
-                <label for="teachingQuality">Teaching Quality</label>
-                <textarea id="teachingQuality" name="teachingQuality" required minlength="10" maxlength="1000" placeholder="Please provide feedback on teaching quality (10-1000 characters)"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="courseContent">Course Content</label>
-                <textarea id="courseContent" name="courseContent" required minlength="10" maxlength="1000" placeholder="Please provide feedback on course content (10-1000 characters)"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="classInteraction">Class Interaction</label>
-                <textarea id="classInteraction" name="classInteraction" required placeholder="Please provide feedback on class interaction"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="assessmentMethods">Assessment Methods</label>
-                <textarea id="assessmentMethods" name="assessmentMethods" required minlength="10" maxlength="1000" placeholder="Please provide feedback on assessment methods (10-1000 characters)"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="overallExperience">Overall Experience</label>
-                <textarea id="overallExperience" name="overallExperience" required minlength="10" maxlength="1000" placeholder="Please provide your overall experience feedback (10-1000 characters)"></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">Submit Feedback</button>
-        </form>
+  <div class="container">
+    <div class="header">
+      <h1>Feedback Form</h1>
+      <p>Welcome, <%= user.name %>! We’d love to hear your thoughts.</p>
     </div>
+
+    <form action="/home/feedback" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="<%= user.name %>" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="rollno">Roll Number</label>
+        <input type="text" id="rollno" name="rollno" value="<%= user.rollno %>" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="teachingQuality">Teaching Quality</label>
+        <textarea id="teachingQuality" name="teachingQuality" required placeholder="Your feedback on teaching quality (10–1000 characters)" minlength="10" maxlength="1000"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="courseContent">Course Content</label>
+        <textarea id="courseContent" name="courseContent" required placeholder="Your feedback on course content (10–1000 characters)" minlength="10" maxlength="1000"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="classInteraction">Class Interaction</label>
+        <textarea id="classInteraction" name="classInteraction" required placeholder="Your feedback on class interaction (10–1000 characters)" minlength="10" maxlength="1000"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="assessmentMethods">Assessment Methods</label>
+        <textarea id="assessmentMethods" name="assessmentMethods" required placeholder="Your feedback on assessment methods (10–1000 characters)" minlength="10" maxlength="1000"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="overallExperience">Overall Experience</label>
+        <textarea id="overallExperience" name="overallExperience" required placeholder="Your overall experience (10–1000 characters)" minlength="10" maxlength="1000"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+  </div>
 </body>
 </html>
