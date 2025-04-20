@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { jwtAuth } = require("../utils/jwt");
-const Feedback = require("../models/Feedback");
 const FormData = require("../models/form-data");
 
 // GET route for feedback form (protected)
@@ -22,15 +21,8 @@ router.post("/feedback", jwtAuth, async (req, res) => {
         
         res.redirect("submitted");
     } catch (err) {
-        if (err.name === "ValidationError") {
-            console.error("Validation error:", err.errors);
-        }
-        console.error("Error saving feedback:", err.message, err);
-        res.status(500).render("invalid", {
-            title: "Error",
-            user: req.user,
-            error: "An error occurred while saving your feedback. Please try again.",
-        });
+        console.error("Error saving feedback:", err);
+        res.status(500).send("Something went wrong.");
     }
 });
 
