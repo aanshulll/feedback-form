@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invalid Data Error</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #F7F7F7;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .error-container {
+            background: #FFFFFF;
+            max-width: 400px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .error-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto;
+        }
+        .error-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #FF5A5F;
+        }
+        h1 {
+            margin: 24px 0 8px;
+            font-size: 28px;
+            color: #484848;
+        }
+        p {
+            margin: 0 0 24px;
+            color: #767676;
+            font-size: 16px;
+        }
+        .btn-main {
+            display: inline-block;
+            background-color: #FF5A5F;
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 24px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .btn-main:hover {
+            background-color: #E64950;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm.25 14v2h-1.5v-2h1.5zm0-10v8h-1.5V6h1.5z"/>
+            </svg>
+        </div>
+        <h1>Invalid Data</h1>
+        <p>We couldn't process your request because the data provided was invalid. Please check and try again.</p>
+        <a href="/" class="btn-main">Go Back Home</a>
+    </div>
+</body>
+</html>
